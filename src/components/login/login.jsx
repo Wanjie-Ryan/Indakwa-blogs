@@ -8,34 +8,35 @@ function Login (){
 
         <>
 
-            <section>
+            <section className='login'>
 
 
-                <form>
+                <form className='login-form'>
 
-                    <div>
-                        <img src={Logo} alt="Logo" />
+                    <div className='img-container'>
+                        <h2 className='title-logo'>Informed Perspective - Login</h2>
+                        <img src={Logo} alt="Logo" className='logo' />
                     </div>
 
 
-                    <div>
+                    <div className='form-details'>
 
-                        <div>
-                            <label>Email</label>
-                            <input type='mail' required placeholder='enter your email'/>
+                        <div className='email-details'>
+                            <label className='email-lbl'>Email</label>
+                            <input type='email' className='email-input' required placeholder='enter your email'/>
                         </div>
 
-                        <div>
-                            <label>
+                        <div  className='email-details' >
+                            <label className='email-lbl'>
                                 Password
                             </label>
 
-                            <input type='password' required placeholder='enter your password'/>
+                            <input type='password' className='email-input' required placeholder='enter your password'/>
                         </div>
 
 
-                        <div>
-                            <button>Login</button>
+                        <div className='button-div'>
+                            <button className='login-btn'>Login</button>
                         </div>
 
 

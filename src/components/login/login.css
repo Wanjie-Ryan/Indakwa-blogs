@@ -1,0 +1,47 @@
+.login{
+
+    width:100%;
+}
+
+
+.login-form{
+
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    /* border:1px solid white; */
+}
+
+.img-container{
+    margin-bottom:50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+}
+
+.title-logo{
+    text-align:center;
+    color:white;
+    margin-bottom:10px;
+    
+}
+
+.logo{
+
+    width:150px;
+    height:120px;
+    border-radius: 20px;
+    cursor:pointer;
+}
+
+.form-details{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
