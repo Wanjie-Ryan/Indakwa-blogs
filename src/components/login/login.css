@@ -1,68 +1,72 @@
-.login{
-
-    width:100%;
+.login {
+  width: 100%;
 }
 
-
-.login-form{
-
-    width:90%;
-    margin-left:auto;
-    margin-right:auto;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    min-height:100vh;
-    /* border:1px solid white; */
+.login-form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* border:1px solid white; */
 }
 
-.img-container{
-    margin-bottom:50px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items: center;
+.img-container {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.title-logo{
-    text-align:center;
-    color:white;
-    margin-bottom:10px;
-    
+.title-logo {
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
 }
 
-.logo{
-
-    width:150px;
-    height:120px;
-    border-radius: 20px;
-    cursor:pointer;
+.logo {
+  width: 150px;
+  height: 120px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.form-details{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
+.form-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.email-details .email-lbl{
-    color:white;
-    margin-right:20px;
+.email-details .email-lbl {
+  color: white;
+  margin-right: 20px;
 }
 
-.email-details .email-input{
-
-    padding:6px;
-    border-radius: 5px;
-    outline:none;
-    border:none;
+.email-details .email-input {
+  padding: 6px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
 }
 
-.email-details .email-input::placeholder{
-    font-weight:500;
+.email-details .email-input::placeholder {
+  font-weight: 500;
 }
 
-.button-div{
-    
+.button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login-btn {
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
 }
