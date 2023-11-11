@@ -1,6 +1,7 @@
 import React from "react";
 import "./login.css";
 import Logo from "../../Images/Logo.png";
+import {Link} from 'react-router-dom'
 
 function Login() {
   return (
@@ -35,7 +36,7 @@ function Login() {
             </div>
 
             <div className="button-div">
-              <button className="login-btn">Login</button>
+              <Link to='/dashboard'><button className="login-btn">Login</button></Link>
             </div>
           </div>
         </form>
