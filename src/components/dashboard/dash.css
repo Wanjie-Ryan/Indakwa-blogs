@@ -1,62 +1,206 @@
-.dashboard{
-
-    width:100%;
+/* .dashboard {
+  width: 100%;
 }
 
-.dashboard-cont{
-    width:90%;
-    margin-left:auto;
-    margin-right:auto;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+.dashboard-cont {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.dash-title{
-    display:flex;
-    gap:20rem;
+.dash-title {
+  display: flex;
+  gap: 20rem;
 }
 
-.title-1{
-    color:white;
-    cursor:pointer;
-    transition:all 0.2ms ease-in-out 0.2s;
-    /* font-weight:500; */
+.title-1 {
+  color: white;
+  cursor: pointer;
+  transition: all 0.2ms ease-in-out 0.2s;
+  
 }
 
-.title-1:hover{
-    text-decoration:underline;
+.title-1:hover {
+  text-decoration: underline;
 }
 
-.create-blog{
-
-    margin-top:70px;
-    display:flex;
-    flex-direction:column;
-    gap:30px;
+.create-blog {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.blog-name label{
-
-    margin-right:20px;
-    color:white;
-    font-weight:500;
+.blog-name label {
+  margin-right: 20px;
+  color: white;
+  font-weight: 500;
 }
 
-.blog-name input{
-
-    padding:7px;
-    outline:none;
-    border:none;
-    border-radius:5px;
+.blog-name input {
+  padding: 7px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
 }
 
-.blog-name input::placeholder{
-    font-weight:bold;
+.blog-name input::placeholder {
+  font-weight: bold;
 }
 
-.blog-name textarea{
-    
+.blog-name-- {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-name-- label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+textarea {
+  resize: none;
+  padding: 20px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+textarea::placeholder {
+  font-weight: bold;
+}
+
+.blog-button {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
+.post-btn {
+  padding: 6px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
+.dashboard {
+  width: 100%;
+}
+
+.dashboard-cont {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dash-title {
+  display: flex;
+  gap: 20rem;
+}
+
+.title-1 {
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.title-1:hover {
+  text-decoration: underline;
+}
+
+.content-container {
+  position: relative;
+}
+
+.show-form {
+  /* Additional styling for the form if needed */
+}
+
+.show-view-blogs {
+  /* Additional styling for the view blogs section if needed */
+}
+
+.show-view-blogs .create-blog {
+  display: none; /* Hide the form */
+}
+
+.show-view-blogs .view-blogs {
+  display: block; /* Show the view blogs section */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.create-blog {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.blog-name label {
+  margin-right: 20px;
+  color: white;
+  font-weight: 500;
+}
+
+.blog-name input {
+  padding: 7px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.blog-name input::placeholder {
+  font-weight: bold;
+}
+
+.blog-name-- {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-name-- label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: none;
+  padding: 20px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+textarea::placeholder {
+  font-weight: bold;
+}
+
+.blog-button {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
+.post-btn {
+  padding: 6px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
 }
