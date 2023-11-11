@@ -45,3 +45,24 @@
     flex-direction: column;
     gap:20px;
 }
+
+.email-details .email-lbl{
+    color:white;
+    margin-right:20px;
+}
+
+.email-details .email-input{
+
+    padding:6px;
+    border-radius: 5px;
+    outline:none;
+    border:none;
+}
+
+.email-details .email-input::placeholder{
+    font-weight:500;
+}
+
+.button-div{
+    
+}
