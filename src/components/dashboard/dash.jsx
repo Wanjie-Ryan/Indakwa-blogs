@@ -1,46 +1,69 @@
-import React from 'react'
-import './dash.css'
+import React from "react";
+import "./dash.css";
 
+function Dashboard() {
+  return (
+    <>
+      <section className="dashboard">
+        <div className="dashboard-cont">
+          <div className="dash-title">
+            <div className="title-1">
+              <h2>Create a Blog</h2>
+            </div>
 
-function Dashboard(){
+            <div className="title-1">
+              <h2>View Blogs</h2>
+            </div>
+          </div>
 
-    return(
+          <form className="create-blog">
+            <div className="blog-name">
+              <label className="blog-name-lbl">Blog Image</label>
 
-        <>
+              <input
+                type="file"
+                accept="image/*"
+                placeholder="enter the name of the blog"
+              />
+            </div>
 
-            <section className='dashboard'>
+            <div className="blog-name">
+              <label className="blog-name-lbl">Blog Title</label>
 
-                <div className='dashboard-cont'>
+              <input
+                type="text"
+                required
+                placeholder="enter the name of the blog"
+              />
+            </div>
 
-                    <div className='dash-title'>
+            <div className="blog-name">
+              <label className="blog-name-lbl">Blog Description</label>
 
-                        <div className='title-1'>
+              <textarea
+                type="text"
+                required
+                placeholder="enter the name of the blog"
+              ></textarea>
+            </div>
 
-                            <h2>Create a Blog</h2>
+            <div className="blog-name">
+              <label>Blog Link</label>
+              <input
+                type="text"
+                required
+                placeholder="enter the link to the blog"
+              />
+            </div>
 
-                        </div>
-
-                        <div className='title-2'>
-
-                            <h2>View Blogs</h2>
-
-
-                        </div>
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
-            </section>
-
-
-        </>
-    )
+            <div className="blog-button">
+              <button>Post</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

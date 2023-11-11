@@ -16,5 +16,47 @@
 
 .dash-title{
     display:flex;
+    gap:20rem;
+}
+
+.title-1{
+    color:white;
+    cursor:pointer;
+    transition:all 0.2ms ease-in-out 0.2s;
+    /* font-weight:500; */
+}
+
+.title-1:hover{
+    text-decoration:underline;
+}
+
+.create-blog{
+
+    margin-top:70px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.blog-name label{
+
+    margin-right:20px;
+    color:white;
+    font-weight:500;
+}
+
+.blog-name input{
+
+    padding:7px;
+    outline:none;
+    border:none;
+    border-radius:5px;
+}
+
+.blog-name input::placeholder{
+    font-weight:bold;
+}
+
+.blog-name textarea{
     
 }
