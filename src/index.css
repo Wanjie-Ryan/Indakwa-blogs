@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Exo+2:ital@1&family=Gloria+Hallelujah&family=Inter&family=Lato:ital@1&family=Lexend+Peta:wght@200;300&family=Lugrasimo&family=Merriweather&family=Mukta:wght@400;500&family=Mulish&family=Noto+Sans:ital,wght@0,400;1,300;1,400&family=Poppins:wght@300;400;500;600&family=Quicksand:wght@500&family=Roboto+Mono:wght@200&family=Rubik&family=Shantell+Sans&family=Tilt+Prism&family=Work+Sans:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Merriweather", serif;
+}
+
+body {
+  background: url("./Images/texture8.jpg");
+  background-repeat: no-repeat;
+  /* object-fit:cover; */
+  background-size: cover;
+  min-height: 100vh;
+  /* width:100%; */
+}
+
+.toast-container {
+  top: 10% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
