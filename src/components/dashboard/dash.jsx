@@ -3,10 +3,9 @@ import "./dash.css";
 import Dummy from "../../Images/Logo.png";
 import UpdateModal from "./updateModal";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import axios from 'axios'
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 function Dash() {
   const images = Array(15).fill(Dummy);
@@ -28,39 +27,32 @@ function Dash() {
   const [description, setDescription] = useState();
   const [link, setLink] = useState();
 
-  const handleName = (e)=>{
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
 
-    setName(e.target.value)
-  }
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+  };
 
-  const handleDescription = (e)=>{
+  const handleLink = (e) => {
+    setLink(e.target.value);
+  };
 
-    setDescription(e.target.value)
-  }
+  const [loading, setLoading] = useState(false);
 
-  const handleLink = (e)=>{
+  const createBlog = async (e) => {
+    e.preventDefault();
 
-    setLink(e.target.value)
-  }
+    if (!image || !name || !description) {
+      toast.error("Please fill all the fields");
 
-
-  const [loading, setLoading] = useState(false)
-
-
-  const createBlog = async(e)=>{
-    e.preventDefault()
-
-    if(!name || !description){
-        toast.error('Please fill all the fields')
-
-        return
+      return;
     }
 
-    setLoading(true)
+    setLoading(true);
 
-
-    try{
-
+    try {
       const formData = new FormData();
       formData.append("file", image);
 
@@ -71,47 +63,41 @@ function Dash() {
         formData
       );
 
-      console.log(imageData)
+      // console.log(imageData)
 
       const blogData = {
         image: imageData.data.secure_url,
-        name:name,
-        description:description,
-        link:link
+        name: name,
+        description: description,
+        link: link,
+      };
 
-      }
+      const response = await axios.post(
+        "https://informed-perspective.onrender.com/api/blogs/createblog",
+        blogData
+      );
 
-      const response = await axios.post('https://informed-perspective.onrender.com/api/blogs/createblog', blogData)
+      // console.log(response)
 
-      console.log(response)
+      toast.success("Blog created Successfully");
 
-      toast.success('Blog created Successfully')
+      setLoading(false);
 
-      setLoading(false)
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } catch (err) {
+      // console.log(err)
 
-      window.location.reload()
-
-
-    }
-    catch(err){
-      console.log(err)
-
-      
-      
-       if (err.response.status === 500) {
+      if (err.response.status === 500) {
         toast.error("A problem with our servers, hang on");
+      } else if (err.response.status === 400) {
+        toast.error("Bad request");
       }
+    } finally {
+      setLoading(false);
     }
-    finally{
-      setLoading(false)
-    }
-
-
-
-
-
-  }
-
+  };
 
   return (
     <>
@@ -125,6 +111,7 @@ function Dash() {
               <input
                 type="file"
                 accept="image/*"
+                required
                 placeholder="enter the image of the blog"
                 onChange={(e) => {
                   setImage(e.target.files[0]);
@@ -134,7 +121,13 @@ function Dash() {
 
             <div className="image">
               <label>Blog Name</label>
-              <input type="text" placeholder="enter the name of the blog" required value={name} onChange={handleName} />
+              <input
+                type="text"
+                placeholder="enter the name of the blog"
+                required
+                value={name}
+                onChange={handleName}
+              />
             </div>
 
             <div className="image">
@@ -155,15 +148,22 @@ function Dash() {
 
             <div className="image">
               <label>Blog Link</label>
-              <input type="text" placeholder="enter the Link of the blog" value={link} onChange={handleLink} />
+              <input
+                type="text"
+                placeholder="enter the Link of the blog"
+                value={link}
+                onChange={handleLink}
+              />
             </div>
 
             <div className="post-div">
-              <button>{loading ? (
-                    <AiOutlineLoading3Quarters className="loading-icon" />
-                  ) : (
-                    "Create"
-                  )}</button>
+              <button>
+                {loading ? (
+                  <AiOutlineLoading3Quarters className="loading-icon" />
+                ) : (
+                  "Create"
+                )}
+              </button>
             </div>
           </form>
 
