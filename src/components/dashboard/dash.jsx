@@ -99,48 +99,58 @@ function Dash() {
     }
   };
 
+  const [blogs, setBlogs] = useState([]);
 
-  const [blogs, setBlogs ] = useState([])
-
-  useEffect(()=>{
-
-
-    const GetBlogs = async()=>{
-
-      try{
-
+  useEffect(() => {
+    const GetBlogs = async () => {
+      try {
         const getBlogs = await axios.get(
           "https://informed-perspective.onrender.com/api/blogs/getblogs"
         );
 
-        console.log(getBlogs.data.blogs)
+        // console.log(getBlogs.data.blogs)
 
-        setBlogs(getBlogs.data.blogs)
+        setBlogs(getBlogs.data.blogs);
+      } catch (err) {
+        // console.log(err)
 
-
-      }
-
-      catch(err){
-        console.log(err)
-
-        if(err.response.status === 500){
-          return toast.error('A problem with the server, hang on')
+        if (err.response.status === 500) {
+          return toast.error("A problem with the server, hang on");
         }
       }
+    };
 
-      
+    GetBlogs();
+  }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      setLoading(true);
 
+      const deleteBlog = await axios.delete(
+        `https://informed-perspective.onrender.com/api/blogs/deleteblog/${id}`
+      );
 
+      // console.log(deleteBlog);
+      setLoading(false);
+      toast.success("Blog was deleted successfully");
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } catch (err) {
+      // console.log(err);
+      if (err.response.status === 500) {
+        toast.error("A problem with our servers, hang on");
+      } else if (err.response.status === 404) {
+        toast.error("The Blog cannot seem to be found");
+      } else {
+        toast.error("Check your network connection");
+      }
+    } finally {
+      setLoading(false);
     }
-
-    GetBlogs()
-
-
-
-
-
-  }, [])
+  };
 
   return (
     <>
@@ -229,7 +239,16 @@ function Dash() {
                       </p>
                     </div>
                     <div>
-                      <p className="delete">Delete</p>
+                      <p
+                        className="delete"
+                        onClick={() => handleDelete(item._id)}
+                      >
+                        {loading ? (
+                          <AiOutlineLoading3Quarters className="loading-icon" />
+                        ) : (
+                          "Delete"
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>

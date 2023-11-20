@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginComponent from "./pages/login/login";
+// import LoginComponent from "./pages/login/login";
 import DashboardComponent from "./pages/dashboard/dash";
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginComponent />} />
-          <Route path="/dashboard" element={<DashboardComponent />} />
+          {/* <Route path="/" element={<LoginComponent />} /> */}
+          <Route path="/" element={<DashboardComponent />} />
         </Routes>
       </BrowserRouter>
     </>

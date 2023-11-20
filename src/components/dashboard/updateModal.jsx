@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Checkout({ isOpen, onClose, selectedItem }) {
-//   console.log(selectedItem);
+  //   console.log(selectedItem);
 
   const [image, setImage] = useState();
   const [name, setName] = useState();
@@ -51,7 +51,7 @@ function Checkout({ isOpen, onClose, selectedItem }) {
         formData
       );
 
-    //   console.log(imageData);
+      //   console.log(imageData);
 
       const blogData = {
         image: imageData.data.secure_url,
@@ -65,7 +65,7 @@ function Checkout({ isOpen, onClose, selectedItem }) {
         blogData
       );
 
-    //   console.log(response);
+      //   console.log(response);
 
       toast.success("Blog updated Successfully");
 
