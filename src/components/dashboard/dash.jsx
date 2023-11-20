@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./dash.css";
 import Dummy from "../../Images/Logo.png";
+import UpdateModal from "./updateModal";
 
 function Dash() {
   const images = Array(15).fill(Dummy);
+
+  const [updateModal, setupdateModal] = useState(false);
+  const [selectedBlog, setSelectedBlog] = useState(null);
+
+  const OpenModal = (item) => {
+    setSelectedBlog(item);
+    setupdateModal(true);
+  };
+
+  const CloseModal = () => {
+    setupdateModal(false);
+  };
 
   return (
     <>
@@ -64,7 +77,9 @@ function Dash() {
 
                   <div className="blog-details-cont">
                     <div>
-                      <p className="update">Update</p>
+                      <p className="update" onClick={() => OpenModal(index)}>
+                        Update
+                      </p>
                     </div>
                     <div>
                       <p className="delete">Delete</p>
@@ -76,6 +91,12 @@ function Dash() {
           </div>
         </div>
       </section>
+
+      <UpdateModal
+        isOpen={updateModal}
+        onClose={CloseModal}
+        selectedItem={selectedBlog}
+      />
     </>
   );
 }
