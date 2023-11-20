@@ -1,99 +1,9 @@
-/* .dashboard {
-  width: 100%;
-}
-
-.dashboard-cont {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.dash-title {
-  display: flex;
-  gap: 20rem;
-}
-
-.title-1 {
-  color: white;
-  cursor: pointer;
-  transition: all 0.2ms ease-in-out 0.2s;
-  
-}
-
-.title-1:hover {
-  text-decoration: underline;
-}
-
-.create-blog {
-  margin-top: 70px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.blog-name label {
-  margin-right: 20px;
-  color: white;
-  font-weight: 500;
-}
-
-.blog-name input {
-  padding: 7px;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-}
-
-.blog-name input::placeholder {
-  font-weight: bold;
-}
-
-.blog-name-- {
-  display: flex;
-  flex-direction: column;
-}
-
-.blog-name-- label {
-  color: white;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-textarea {
-  resize: none;
-  padding: 20px;
-  outline: none;
-  border: none;
-  border-radius: 4px;
-}
-
-textarea::placeholder {
-  font-weight: bold;
-}
-
-.blog-button {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  align-items: center;
-}
-
-.post-btn {
-  padding: 6px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-} */
-
 .dashboard {
   width: 100%;
+  min-height: 100vh;
 }
 
-.dashboard-cont {
+.dashboard-container {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -101,125 +11,130 @@ textarea::placeholder {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
-.dash-title {
-  display: flex;
-  gap: 20rem;
-}
-
-.title-1 {
+.p-create-blog {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: bold;
   color: white;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  font-size: 19px;
 }
 
-.title-1:hover {
-  text-decoration: underline;
-}
-
-.content-container {
-  position: relative;
-}
-
-.show-form {
-  /* Additional styling for the form if needed */
-}
-
-.show-view-blogs {
-  /* Additional styling for the view blogs section if needed */
-}
-
-.show-view-blogs .create-blog {
-  display: none; /* Hide the form */
-}
-
-.show-view-blogs .view-blogs {
-  display: block; /* Show the view blogs section */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.create-blog {
-  margin-top: 70px;
+.post-form {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
-.blog-name label {
+.image label {
   margin-right: 20px;
+  font-weight: 600;
   color: white;
-  font-weight: 500;
 }
 
-.blog-name input {
-  padding: 7px;
+.image input {
+  width: 250px;
+  padding: 6px;
   outline: none;
   border: none;
-  border-radius: 5px;
 }
 
-.blog-name input::placeholder {
+.image input::placeholder {
   font-weight: bold;
 }
 
-.blog-name-- {
-  display: flex;
-  flex-direction: column;
-}
-
-.blog-name-- label {
-  color: white;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
 textarea {
-  resize: none;
-  padding: 20px;
-  outline: none;
-  border: none;
-  border-radius: 4px;
+  margin-top: 10px;
 }
 
 textarea::placeholder {
   font-weight: bold;
 }
 
-.blog-button {
+.post-div {
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  justify-content: center;
   align-items: center;
 }
 
-.post-btn {
-  padding: 6px;
-  font-weight: bold;
-  border-radius: 4px;
+.post-div button {
+  width: 250px;
+  margin-top: 20px;
+  padding: 3px;
   cursor: pointer;
+  outline: none;
+  border: none;
+  font-weight: bold;
 }
 
-.blogs-container{
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top:50px;
+.view-blogs {
+  margin-top: 70px;
 }
 
-.blogs{
+.view-blogs-p {
+  font-weight: bold;
+  color: white;
+  font-size: 19px;
+  text-align: center;
+}
 
-    width: calc(33.33% - 20px); 
+.blog-cont {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.blog-cont--- {
+  flex: 1 0 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.blog-img{
-    width:150px;
-    height:120px;
+.image-blog {
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out 0.2ms;
+}
+
+.image-blog:hover {
+  transform: scale(1.1);
+}
+
+.blog-name,
+.blog-desc {
+  margin-top: 20px;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+.blog-details-cont {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.update {
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.delete {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
 }

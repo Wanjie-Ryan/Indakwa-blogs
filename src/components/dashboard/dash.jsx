@@ -1,123 +1,78 @@
-import React, { useState } from "react";
+import React from "react";
 import "./dash.css";
-import Logo from '../../Images/Logo.png'
-import {BsPencilFill} from 'react-icons/bs'
-import {AiFillDelete} from 'react-icons/ai'
-function Dashboard() {
-  const [showForm, setShowForm] = useState(true);
+import Dummy from "../../Images/Logo.png";
+
+function Dash() {
+  const images = Array(15).fill(Dummy);
 
   return (
     <>
       <section className="dashboard">
-        <div className="dashboard-cont">
-          <div className="dash-title">
-            <div className="title-1">
-              <h2 onClick={() => setShowForm(true)}>Create a Blog</h2>
+        <div className="dashboard-container">
+          <p className="p-create-blog">Create Blog</p>
+
+          <form className="post-form">
+            <div className="image">
+              <label>Blog Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                placeholder="enter the image of the blog"
+              />
             </div>
 
-            <div className="title-1">
-              <h2 onClick={() => setShowForm(false)}>View Blogs</h2>
+            <div className="image">
+              <label>Blog Name</label>
+              <input type="text" placeholder="enter the name of the blog" />
             </div>
-          </div>
 
-          <div
-            className={`content-container ${
-              showForm ? "show-form" : "show-view-blogs"
-            }`}
-          >
-            {showForm ? (
-              <form className="create-blog">
-                <div className="blog-name">
-                  <label className="blog-name-lbl">Blog Image</label>
-
-                  <input
-                    type="file"
-                    accept="image/*"
-                    placeholder="enter the name of the blog"
-                  />
-                </div>
-
-                <div className="blog-name">
-                  <label className="blog-name-lbl">Blog Title</label>
-
-                  <input
-                    type="text"
-                    required
-                    placeholder="enter the name of the blog"
-                  />
-                </div>
-
-                <div className="blog-name--">
-                  <label className="blog-name-lbl">Blog Description</label>
-
-                  <textarea
-                    type="text"
-                    required
-                    placeholder="enter a brief description of the blog"
-                    // rows='4'
-                    // cols='50'
-                  ></textarea>
-                </div>
-
-                <div className="blog-name">
-                  <label>Blog Link</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="enter the link to the blog"
-                  />
-                </div>
-
-                <div className="blog-button">
-                  <button className="post-btn">Post</button>
-                </div>
-              </form>
-            ) : (
-              <div className="view-blogs">
-                
-                <div className='blogs-container'>
-
-                    <div className='blogs'>
-
-                        
-                        <div className='image'>
-                            <img src={Logo} alt='blog-img' className='blog-img'/>
-                        </div>
-
-                        <div className='blog-desc'>
-
-                            <p>Title:xxxx</p>
-                            <p>Description:xxxx</p>
-                            <p>Link:xxxx</p>
-
-
-                        </div>
-
-                        <div className='do-what'>
-
-                            <div className='update'>
-
-                                <BsPencilFill/>
-
-                            </div>
-
-                            <div className='delete'>
-
-                                <AiFillDelete/>
-
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-                
+            <div className="image">
+              <div>
+                <label className="ta-label">Blog Description</label>
               </div>
-            )}
+
+              <textarea
+                type="text"
+                required
+                placeholder="enter a brief description of the blog"
+                rows="4"
+                cols="50"
+              ></textarea>
+            </div>
+
+            <div className="image">
+              <label>Blog Link</label>
+              <input type="text" placeholder="enter the Link of the blog" />
+            </div>
+
+            <div className="post-div">
+              <button>Post</button>
+            </div>
+          </form>
+
+          <div className="view-blogs">
+            <p className="view-blogs-p">View Posted Blogs</p>
+
+            <div className="blog-cont">
+              {images.map((image, index) => (
+                <div className="blog-cont---" key={index}>
+                  <div className="blog-cont-img">
+                    <img src={image} className="image-blog" alt="blog" />
+                    <p className="blog-name">Informed Perspectives</p>
+                    <p className="blog-desc">Informed Perspectives</p>
+                  </div>
+
+                  <div className="blog-details-cont">
+                    <div>
+                      <p className="update">Update</p>
+                    </div>
+                    <div>
+                      <p className="delete">Delete</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -125,4 +80,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Dash;
