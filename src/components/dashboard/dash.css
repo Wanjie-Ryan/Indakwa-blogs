@@ -138,3 +138,18 @@ textarea::placeholder {
   font-size: 20px;
   cursor: pointer;
 }
+
+.loading-icon {
+  animation: spin 1s linear infinite;
+  color: purple;
+  font-size: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

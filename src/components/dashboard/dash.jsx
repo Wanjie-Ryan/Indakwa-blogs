@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "./dash.css";
 import Dummy from "../../Images/Logo.png";
 import UpdateModal from "./updateModal";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import axios from 'axios'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function Dash() {
   const images = Array(15).fill(Dummy);
@@ -18,25 +23,118 @@ function Dash() {
     setupdateModal(false);
   };
 
+  const [image, setImage] = useState();
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [link, setLink] = useState();
+
+  const handleName = (e)=>{
+
+    setName(e.target.value)
+  }
+
+  const handleDescription = (e)=>{
+
+    setDescription(e.target.value)
+  }
+
+  const handleLink = (e)=>{
+
+    setLink(e.target.value)
+  }
+
+
+  const [loading, setLoading] = useState(false)
+
+
+  const createBlog = async(e)=>{
+    e.preventDefault()
+
+    if(!name || !description){
+        toast.error('Please fill all the fields')
+
+        return
+    }
+
+    setLoading(true)
+
+
+    try{
+
+      const formData = new FormData();
+      formData.append("file", image);
+
+      formData.append("upload_preset", "pq4z6rjr");
+
+      const imageData = await axios.post(
+        "https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload",
+        formData
+      );
+
+      console.log(imageData)
+
+      const blogData = {
+        image: imageData.data.secure_url,
+        name:name,
+        description:description,
+        link:link
+
+      }
+
+      const response = await axios.post('https://informed-perspective.onrender.com/api/blogs/createblog', blogData)
+
+      console.log(response)
+
+      toast.success('Blog created Successfully')
+
+      setLoading(false)
+
+      window.location.reload()
+
+
+    }
+    catch(err){
+      console.log(err)
+
+      
+      
+       if (err.response.status === 500) {
+        toast.error("A problem with our servers, hang on");
+      }
+    }
+    finally{
+      setLoading(false)
+    }
+
+
+
+
+
+  }
+
+
   return (
     <>
       <section className="dashboard">
         <div className="dashboard-container">
           <p className="p-create-blog">Create Blog</p>
 
-          <form className="post-form">
+          <form className="post-form" onSubmit={createBlog}>
             <div className="image">
               <label>Blog Image</label>
               <input
                 type="file"
                 accept="image/*"
                 placeholder="enter the image of the blog"
+                onChange={(e) => {
+                  setImage(e.target.files[0]);
+                }}
               />
             </div>
 
             <div className="image">
               <label>Blog Name</label>
-              <input type="text" placeholder="enter the name of the blog" />
+              <input type="text" placeholder="enter the name of the blog" required value={name} onChange={handleName} />
             </div>
 
             <div className="image">
@@ -50,16 +148,22 @@ function Dash() {
                 placeholder="enter a brief description of the blog"
                 rows="4"
                 cols="50"
+                value={description}
+                onChange={handleDescription}
               ></textarea>
             </div>
 
             <div className="image">
               <label>Blog Link</label>
-              <input type="text" placeholder="enter the Link of the blog" />
+              <input type="text" placeholder="enter the Link of the blog" value={link} onChange={handleLink} />
             </div>
 
             <div className="post-div">
-              <button>Post</button>
+              <button>{loading ? (
+                    <AiOutlineLoading3Quarters className="loading-icon" />
+                  ) : (
+                    "Create"
+                  )}</button>
             </div>
           </form>
 
