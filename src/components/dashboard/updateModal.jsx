@@ -7,7 +7,36 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Checkout({ isOpen, onClose }) {
+function Checkout({ isOpen, onClose,selectedItem }) {
+
+    console.log(selectedItem)
+
+  const [image, setImage] = useState();
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [link, setLink] = useState();
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const handleLink = (e) => {
+    setLink(e.target.value);
+  };
+
+  const [loading, setLoading] = useState(false);
+
+  const updateBlog = async(e)=>{
+    
+  }
+
+
+
+
   return (
     <>
       <Modal

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./dash.css";
 import Dummy from "../../Images/Logo.png";
 import UpdateModal from "./updateModal";
@@ -99,6 +99,49 @@ function Dash() {
     }
   };
 
+
+  const [blogs, setBlogs ] = useState([])
+
+  useEffect(()=>{
+
+
+    const GetBlogs = async()=>{
+
+      try{
+
+        const getBlogs = await axios.get(
+          "https://informed-perspective.onrender.com/api/blogs/getblogs"
+        );
+
+        console.log(getBlogs.data.blogs)
+
+        setBlogs(getBlogs.data.blogs)
+
+
+      }
+
+      catch(err){
+        console.log(err)
+
+        if(err.response.status === 500){
+          return toast.error('A problem with the server, hang on')
+        }
+      }
+
+      
+
+
+
+    }
+
+    GetBlogs()
+
+
+
+
+
+  }, [])
+
   return (
     <>
       <section className="dashboard">
@@ -171,17 +214,17 @@ function Dash() {
             <p className="view-blogs-p">View Posted Blogs</p>
 
             <div className="blog-cont">
-              {images.map((image, index) => (
-                <div className="blog-cont---" key={index}>
+              {blogs.map((item) => (
+                <div className="blog-cont---" key={item._id}>
                   <div className="blog-cont-img">
-                    <img src={image} className="image-blog" alt="blog" />
-                    <p className="blog-name">Informed Perspectives</p>
-                    <p className="blog-desc">Informed Perspectives</p>
+                    <img src={item.image} className="image-blog" alt="blog" />
+                    <p className="blog-name">{item.name}</p>
+                    <p className="blog-desc">{item.description}</p>
                   </div>
 
                   <div className="blog-details-cont">
                     <div>
-                      <p className="update" onClick={() => OpenModal(index)}>
+                      <p className="update" onClick={() => OpenModal(item._id)}>
                         Update
                       </p>
                     </div>
